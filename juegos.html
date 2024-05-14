@@ -4,6 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+</head>
+<body>
+    <nav style="display: flex; flex-direction: row; align-items: center;justify-content: space-between; padding: 18vh; color: white; background-color: black;font-size: 4vh; font-weight: bold;">
+        <a href="index.html" style="text-decoration: none;">Inicio</a>
+        <a href="catalogo.html" style="text-decoration: none;">Catalogo</a>
+        <a href="comentarios.html"  style="text-decoration: none;">Comentarios</a>
+        <a href="juegos.html"  style="text-decoration: none;">Comentarios</a>
+    </nav>
+
+    <h1>Gestion de juegos</h1>
+    <form action="insert" style="display: flex; flex-direction: column;">
+        <input type=" text" placeholder=" coloque el nombre" id="nombre">
+        <input type="text" placeholder=" coloque el precio" id="precio">
+        <input type=" text" placeholder="coloque la descripcion" id="descripcion">
+        <button onclick="" type="submit">insertar</button>
+    </form>
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -24,22 +41,5 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
       </script>
-</head>
-<body>
-    <nav style="display: flex; flex-direction: row; align-items: center;justify-content: space-between; padding: 18vh; color: white; background-color: black;font-size: 4vh; font-weight: bold;">
-        <a href="index.html" style="text-decoration: none;">Inicio</a>
-        <a href="catalogo.html" style="text-decoration: none;">Catalogo</a>
-        <a href="comentarios.html"  style="text-decoration: none;">Comentarios</a>
-        <a href="juegos.html"  style="text-decoration: none;">Comentarios</a>
-    </nav>
-
-    <h1>Gestion de juegos</h1>
-    <form action="insert" style="display: flex; flex-direction: column;">
-        <input type=" text" placeholder=" coloque el nombre" id="nombre">
-        <input type="text" placeholder=" coloque el precio" id="precio">
-        <input type=" text" placeholder="coloque la descripcion" id="descripcion">
-        <button onclick="" type="submit">insertar</button>
-    </form>
-    
 </body>
 </html>
