@@ -15,7 +15,7 @@
     </nav>
 
     <h1>Gestion de juegos</h1>
-    <form action="insert" style="display: flex; flex-direction: column;">
+    <form style="display: flex; flex-direction: column; " id="form-vid">
         <input type=" text" placeholder=" coloque el nombre" id="nombre">
         <input type="text" placeholder=" coloque el precio" id="precio">
         <input type=" text" placeholder="coloque la descripcion" id="descripcion">
@@ -40,6 +40,18 @@
       
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const vidproduct= document.getElementById("form-vid");
+        vidproduct.addEventListener("submit",async(e)=>{
+            e.preventDefault();
+            await addDoc(collection(db,"Juegos"),{
+                nombre: vidproduct.nombre.value,
+                precio: vidproduct.precio.value,
+                descripcion: vidproduct.descripcion.value
+            });
+            vidproduct.reset();
+        });
+
       </script>
 </body>
 </html>
