@@ -8,3 +8,32 @@
   flex-direction: column;
   font-weight: bold;
 }
+body {
+  background: rgb(14, 18, 27);
+  background: linear-gradient(
+    90deg,
+    rgba(14, 18, 27, 1) 0%,
+    rgba(13, 30, 50, 1) 32%,
+    rgba(25, 42, 62, 1) 52%,
+    rgba(32, 49, 69, 1) 68%,
+    rgba(23, 31, 44, 1) 97%
+  );
+}
+#datos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15vh; /
+}
+
+.card {
+  flex: 1 1 calc(50% - 10px);
+  max-width: calc(50% - 10px);
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    flex: 1 1 calc(100% - 10px);
+    max-width: calc(100% - 10px);
+  }
+}
