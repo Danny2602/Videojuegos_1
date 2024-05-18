@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", anadir);
 
 async function mostrarDatos() {
   try {
-    const datos = document.getElementById("tasks-container");
+    const datos = document.getElementById("datos");
     datos.innerHTML = ""; // Limpiar contenedor antes de agregar datos nuevos
 
     const querySnapshot = await getDocs(collection(db, "Juegos"));
