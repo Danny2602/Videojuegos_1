@@ -57,7 +57,7 @@ async function seleccionar() {
     const tablaDatos = document.getElementById("tablaDatos");
     tablaDatos.innerHTML = ""; // Limpiar tabla antes de agregar datos nuevos
 
-    const juegosSnapshot = await getDocs(collection(db, "YOUR_COLLECTION"));
+    const juegosSnapshot = await getDocs(collection(db, "Juegos"));
 
     const tabla = document.createElement("table");
     tabla.innerHTML = `
