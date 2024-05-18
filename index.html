@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modal Example</title>
+    <title>Juegos</title>
     <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.css" />
   </head>
   <body>
@@ -50,7 +50,7 @@
           </div>
           <div class="modal-body">
             <!-- Formulario para añadir juego para no confundirme -->
-            <form id="videojuegoForm">
+            <form id="añadirVid">
               <div class="mb-3">
                 <label for="titulo" class="form-label">Título:</label>
                 <input
@@ -88,8 +88,8 @@
                 <input
                   type="date"
                   class="form-control"
-                  id="fecha_lanzamiento"
-                  name="fecha_lanzamiento"
+                  id="fecha"
+                  name="fecha"
                   required
                 />
               </div>
@@ -155,8 +155,12 @@
                 >
                   Cerrar
                 </button>
-                <button type="submit" class="btn btn-primary">
-                  Añadir Videojuego
+                <button
+                  type="submit"
+                  onclick="añadir()"
+                  class="btn btn-primary"
+                >
+                  Añadir
                 </button>
               </div>
             </form>
@@ -307,5 +311,6 @@
       </div>
     </div>
     <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>
+    <script src="js/primario.js"></script>
   </body>
 </html>
