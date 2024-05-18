@@ -22,7 +22,8 @@ body {
 #datos {
   display: flex;
   flex-wrap: wrap;
-  gap: 15vh; /
+  gap: 5vh;
+  margin-left: 5vh;
 }
 
 .card {

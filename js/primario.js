@@ -44,6 +44,7 @@ function anadir() {
         descripcion: vidproduct.descripcion.value,
       });
       alert("Juego añadido con éxito");
+      mostrarDatos();
       vidproduct.reset();
     } catch (error) {
       console.error("Error al añadir el documento: ", error);
@@ -63,16 +64,24 @@ async function mostrarDatos() {
 
     querySnapshot.forEach((doc) => {
       datos.innerHTML += `
-        <div class="card card-body mt-0 border-primary">
-          <h3>${doc.data().titulo}</h3>
-          <p>Género: ${doc.data().genero}</p>
-          <p>Plataforma: ${doc.data().plataforma}</p>
-          <p>Fecha: ${doc.data().fecha}</p>
-          <p>Desarrollador: ${doc.data().desarrollador}</p>
-          <p>Editor: ${doc.data().editor}</p>
-          <p>Clasificación: ${doc.data().clasificacion}</p>
-          <p>Precio: ${doc.data().precio}</p>
-          <p>Descripción: ${doc.data().descripcion}</p>
+        <div class="card card-body  border-primary mt-0 col-4 " style=" background-color: #363f4f;color:white; border: none; ">
+        <h3 style="text-aling:center;justify-content:center;display:flex">${
+          doc.data().titulo
+        }</h3>
+        <div class="" style="font-size:2.1vh;display:flex; justify-content: space-between;"> 
+          <div> 
+            <p>Género: ${doc.data().genero}</p>
+            <p>Plataforma: ${doc.data().plataforma}</p>
+            <p>Fecha: ${doc.data().fecha}</p>
+            <p>Desarrollador: ${doc.data().desarrollador}</p>
+          </div>
+          <div> 
+            <p>Editor: ${doc.data().editor}</p>
+            <p>Clasificación: ${doc.data().clasificacion}</p>
+            <p>Precio: ${doc.data().precio}</p>
+            <p>Descripción: ${doc.data().descripcion}</p> 
+          </div>
+         </div>
         </div>
       `;
     });
