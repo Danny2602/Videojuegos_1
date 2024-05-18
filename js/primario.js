@@ -50,9 +50,9 @@ function anadir() {
     }
   });
 }
-document.addEventListener("DOMContentLoaded", anadir);
 
-const getTasks = () => db.collection("Juegos").get();
+const taskContainer = document.getElementById("tasks-container");
+const getTasks = () => db.collection(db, "Juegos").get();
 
 window.addEventListener("DOMContentLoaded", async (e) => {
   const querySnapshot = await getTasks();
