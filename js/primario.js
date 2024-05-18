@@ -30,16 +30,17 @@ function añadir() {
   vidproduct.addEventListener("submit", async (e) => {
     e.preventDefault();
     await addDoc(collection(db, "Juegos"), {
-      Titulo: vidproduct.titulo.value,
-      Genero: vidproduct.genero.value,
-      Plataforma: vidproduct.plataforma.value,
-      Fecha: vidproduct.fecha.value,
-      Desarrollador: vidproduct.desarrollador.value,
-      Editor: vidproduct.editor.value,
-      Clasificacion: vidproduct.clasificacion.value,
-      Precio: vidproduct.precio.value,
+      titulo: vidproduct.titulo.value,
+      genero: vidproduct.genero.value,
+      plataforma: vidproduct.plataforma.value,
+      fecha: vidproduct.fecha.value,
+      desarrollador: vidproduct.desarrollador.value,
+      editor: vidproduct.editor.value,
+      clasificacion: vidproduct.clasificacion.value,
+      precio: vidproduct.precio.value,
       descripcion: vidproduct.descripcion.value,
     });
+    alert("Juego añadido con exito");
     vidproduct.reset();
   });
 }
