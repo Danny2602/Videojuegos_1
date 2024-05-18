@@ -25,22 +25,29 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-function añadir() {
-  const vidproduct = document.getElementById("añadirVid");
+function anadir() {
+  const vidproduct = document.getElementById("anadirVid");
   vidproduct.addEventListener("submit", async (e) => {
     e.preventDefault();
-    await addDoc(collection(db, "Juegos"), {
-      titulo: vidproduct.titulo.value,
-      genero: vidproduct.genero.value,
-      plataforma: vidproduct.plataforma.value,
-      fecha: vidproduct.fecha.value,
-      desarrollador: vidproduct.desarrollador.value,
-      editor: vidproduct.editor.value,
-      clasificacion: vidproduct.clasificacion.value,
-      precio: vidproduct.precio.value,
-      descripcion: vidproduct.descripcion.value,
-    });
-    alert("Juego añadido con exito");
-    vidproduct.reset();
+
+    try {
+      await addDoc(collection(db, "Juegos"), {
+        titulo: vidproduct.titulo.value,
+        genero: vidproduct.genero.value,
+        plataforma: vidproduct.plataforma.value,
+        fecha: vidproduct.fecha.value,
+        desarrollador: vidproduct.desarrollador.value,
+        editor: vidproduct.editor.value,
+        clasificacion: vidproduct.clasificacion.value,
+        precio: vidproduct.precio.value,
+        descripcion: vidproduct.descripcion.value,
+      });
+      alert("Juego añadido con éxito");
+      vidproduct.reset();
+    } catch (error) {
+      console.error("Error al añadir el documento: ", error);
+      alert("Error al añadir el juego: " + error.message);
+    }
   });
 }
+document.addEventListener("DOMContentLoaded", anadir);
