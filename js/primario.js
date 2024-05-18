@@ -51,17 +51,34 @@ function anadir() {
   });
 }
 
-const taskContainer = document.getElementById("tasks-container");
-const getTasks = () => db.collection(db, "Juegos").get();
+document.addEventListener("DOMContentLoaded", anadir);
 
-window.addEventListener("DOMContentLoaded", async (e) => {
-  const querySnapshot = await getTasks();
-  querySnapshot.forEach((doc) => {
-    console.log(doc.data());
-    taskContainer.innerHTML += `
-    <div class="card card-body mt-0 border-primary"
-    <h3>${doc.data().title}</h3>
-    </div>
-    `;
-  });
-});
+async function mostrarDatos() {
+  try {
+    const taskContainer = document.getElementById("tasks-container");
+    taskContainer.innerHTML = ""; // Limpiar contenedor antes de agregar datos nuevos
+
+    const querySnapshot = await getDocs(collection(db, "Juegos"));
+
+    querySnapshot.forEach((doc) => {
+      taskContainer.innerHTML += `
+        <div class="card card-body mt-0 border-primary">
+          <h3>${doc.data().titulo}</h3>
+          <p>Género: ${doc.data().genero}</p>
+          <p>Plataforma: ${doc.data().plataforma}</p>
+          <p>Fecha: ${doc.data().fecha}</p>
+          <p>Desarrollador: ${doc.data().desarrollador}</p>
+          <p>Editor: ${doc.data().editor}</p>
+          <p>Clasificación: ${doc.data().clasificacion}</p>
+          <p>Precio: ${doc.data().precio}</p>
+          <p>Descripción: ${doc.data().descripcion}</p>
+        </div>
+      `;
+    });
+  } catch (error) {
+    console.error("Error al obtener los datos:", error);
+    alert("Error al obtener los datos. Consulta la consola para más detalles.");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", mostrarDatos);
