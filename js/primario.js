@@ -52,42 +52,16 @@ function anadir() {
 }
 document.addEventListener("DOMContentLoaded", anadir);
 
-async function seleccionar() {
-  try {
-    const tablaDatos = document.getElementById("tablaDatos");
-    tablaDatos.innerHTML = ""; // Limpiar tabla antes de agregar datos nuevos
+const getTasks = () => db.collection("Juegos").get();
 
-    const juegosSnapshot = await getDocs(collection(db, "YOUR_COLLECTION"));
-
-    const tabla = document.createElement("table");
-    tabla.innerHTML = `
-      <tr>
-        <th>Título</th>
-        <th>Género</th>
-        <th>Plataforma</th>
-        <!-- Agrega más encabezados según tus necesidades -->
-      </tr>
+window.addEventListener("DOMContentLoaded", async (e) => {
+  const querySnapshot = await getTasks();
+  querySnapshot.forEach((doc) => {
+    console.log(doc.data());
+    taskContainer.innerHTML += `
+    <div class="card card-body mt-0 border-primary"
+    <h3>${doc.data().title}</h3>
+    </div>
     `;
-
-    juegosSnapshot.forEach((doc) => {
-      const juego = doc.data();
-      const fila = document.createElement("tr");
-      fila.innerHTML = `
-        <td>${juego.titulo}</td>
-        <td>${juego.genero}</td>
-        <td>${juego.plataforma}</td>
-        <!-- Agrega más columnas según tus necesidades -->
-      `;
-      tabla.appendChild(fila);
-    });
-
-    tablaDatos.appendChild(tabla);
-  } catch (error) {
-    console.error("Error al obtener los juegos:", error);
-    alert(
-      "Error al obtener los juegos. Consulta la consola para más detalles."
-    );
-  }
-}
-
-document.addEventListener("DOMContentLoaded", seleccionar);
+  });
+});
