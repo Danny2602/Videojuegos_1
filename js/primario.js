@@ -56,13 +56,13 @@ document.addEventListener("DOMContentLoaded", anadir);
 
 async function mostrarDatos() {
   try {
-    const taskContainer = document.getElementById("tasks-container");
-    taskContainer.innerHTML = ""; // Limpiar contenedor antes de agregar datos nuevos
+    const datos = document.getElementById("tasks-container");
+    datos.innerHTML = ""; // Limpiar contenedor antes de agregar datos nuevos
 
     const querySnapshot = await getDocs(collection(db, "Juegos"));
 
     querySnapshot.forEach((doc) => {
-      taskContainer.innerHTML += `
+      datos.innerHTML += `
         <div class="card card-body mt-0 border-primary">
           <h3>${doc.data().titulo}</h3>
           <p>Género: ${doc.data().genero}</p>
