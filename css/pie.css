@@ -1,0 +1,46 @@
+@import url("https://fonts.cdnfonts.com/css/motiva-sans");
+body {
+  margin: 0;
+}
+footer {
+  background-color: RGB(23, 26, 33);
+  font-family: Arial Helvetica, sans-serif;
+  font-size: 1.7241379310344827vh;
+  display: flex;
+  height: 39.5vh;
+  color: RGB(143, 152, 160);
+  justify-content: center;
+}
+.pie {
+  width: 140vh;
+  margin-top: 4.5vh;
+  border-top: 1px solid #4c4c4c;
+}
+
+.pie1 a {
+  color: aliceblue;
+  border-right: 1px solid #4c4c4c;
+  padding-right: 3vh;
+  padding-left: 2vh;
+}
+.imgpie {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1vh 1vh 0 1vh;
+}
+
+.pie2 {
+  flex-direction: row;
+  display: flex;
+  padding-top: 2vh;
+  padding-left: 3.5vh;
+  border-top: 1px solid #4c4c4c;
+  color: aliceblue;
+  justify-content: space-between;
+}
+.pie2 div {
+  border-right: 1px solid #4c4c4c;
+  padding-right: 3vh;
+  height: 2vh;
+}

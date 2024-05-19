@@ -146,19 +146,19 @@ async function mostrarDatos() {
 
       // Agregar el contenido del juego al div
       juegoDiv.innerHTML = `
-        <h3 style="text-align:center;justify-content:center;display:flex">${juego.titulo}</h3>
-        <div style="font-size:2.1vh;display:flex; justify-content: space-between;"> 
+        <h3 style="text-align:center;justify-content:center;display:flex;font-size:2.9vh;margin-bottom:3.5vh;font-weight: bold;">${juego.titulo}</h3>
+        <div style="font-size:2.1vh;display:flex; "> 
           <div> 
-            <p>Género: ${juego.genero}</p>
-            <p>Plataforma: ${juego.plataforma}</p>
-            <p>Fecha: ${juego.fecha}</p>
-            <p>Desarrollador: ${juego.desarrollador}</p>
+            <p>Género: ${juego.genero}
+            <br>Plataforma: ${juego.plataforma}<br>
+            Fecha: ${juego.fecha}<br>
+            Desarrollador: ${juego.desarrollador}</p>
           </div>
-          <div> 
-            <p>Editor: ${juego.editor}</p>
-            <p>Clasificación: ${juego.clasificacion}</p>
-            <p>Precio: ${juego.precio}</p>
-            <p>Descripción: ${juego.descripcion}</p> 
+          <div style="padding-left:8vh"> 
+            <p>Editor: ${juego.editor}<br>
+            Clasificación: ${juego.clasificacion}<br>
+            Precio: ${juego.precio}<br>
+            Descripción: ${juego.descripcion}</p> 
           </div>
           
         </div>

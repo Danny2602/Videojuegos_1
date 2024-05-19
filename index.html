@@ -15,6 +15,11 @@
         .then((data) => {
           document.getElementById("nav-container").innerHTML = data;
         });
+      fetch("pie.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("pie-container").innerHTML = data;
+        });
     };
   </script>
   <body style="margin: 0">
@@ -29,15 +34,18 @@
       "
     >
       <div class="div1">
-        <h1>EL MUNDO DE LOS JUEGOS</h1>
-        <h2>UN MUNDO LLENO DE AVENTURAS, ACCION E HISTORIAS</h2>
-        <p>PUBLICA TU JUEGO</p>
+        <h1 style="font-weight: bold">EL MUNDO DE LOS JUEGOS</h1>
+        <h2 style="font-weight: bold">
+          UN MUNDO LLENO DE AVENTURAS, ACCION E HISTORIAS
+        </h2>
+        <p style="font-weight: bold">PUBLICA TU JUEGO</p>
         <!-- Boton para abrir el modal de añadir -->
         <button
           type="button"
           class="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#addGameModal"
+          style="width: 49vh; height: 8vh"
         >
           Añadir Juego
         </button>
@@ -346,6 +354,7 @@
         </div>
       </div>
     </div>
+    <footer id="pie-container" style="margin-top: 5vh"></footer>
     <script type="module" src="js/primario.js"></script>
     <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>
   </body>

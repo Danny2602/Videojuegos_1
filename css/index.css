@@ -26,16 +26,15 @@ body {
   margin-left: 5vh;
 }
 
-#gameContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 /* Estilos para cada tarjeta de juego */
 .card {
   flex: 0 1 48%; /* Toma el 48% del ancho del contenedor */
   margin-bottom: 2%; /* Espaciado entre las tarjetas */
+}
+.card:hover {
+  width: 60vh;
+  transition: 1.5s;
+  background-color: #07080a;
 }
 
 /* Media query para pantallas pequeñas */
@@ -44,6 +43,7 @@ body {
     flex: 0 1 100%; /* Toma el 100% del ancho del contenedor */
   }
 }
+
 .boton1 {
   align-items: center;
   justify-content: center;
