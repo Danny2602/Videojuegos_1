@@ -26,16 +26,22 @@ body {
   margin-left: 5vh;
 }
 
-.card {
-  flex: 1 1 calc(50% - 10px);
-  max-width: calc(50% - 10px);
-  margin-bottom: 10px;
+#gameContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-@media screen and (max-width: 600px) {
+/* Estilos para cada tarjeta de juego */
+.card {
+  flex: 0 1 48%; /* Toma el 48% del ancho del contenedor */
+  margin-bottom: 2%; /* Espaciado entre las tarjetas */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
   .card {
-    flex: 1 1 calc(100% - 10px);
-    max-width: calc(100% - 10px);
+    flex: 0 1 100%; /* Toma el 100% del ancho del contenedor */
   }
 }
 .boton1 {

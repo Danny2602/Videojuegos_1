@@ -139,7 +139,7 @@ async function mostrarDatos() {
 
       // Crear el elemento div que contendrá la información del juego y el botón
       const juegoDiv = document.createElement("div");
-      juegoDiv.className = "card card-body  border-primary mt-0 col-4 ";
+      juegoDiv.className = "card card-body  border-primary mt-0 ";
       juegoDiv.style.backgroundColor = "#363f4f";
       juegoDiv.style.color = "white";
       juegoDiv.style.border = "none";
