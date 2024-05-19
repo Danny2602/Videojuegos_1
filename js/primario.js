@@ -8,6 +8,7 @@ import {
   getDoc,
   onSnapshot,
   deleteDoc,
+  updateDoc,
   doc,
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -26,8 +27,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
+document.addEventListener("DOMContentLoaded", anadir);
 document.addEventListener("DOMContentLoaded", mostrarDatos);
+document.addEventListener("DOMContentLoaded", actualizar);
 
 function anadir() {
   const vidproduct = document.getElementById("anadirVid");
@@ -56,7 +58,50 @@ function anadir() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", anadir);
+function actualizar() {
+  event.preventDefault();
+  console.log("inicio");
+  const updateGameForm = document.getElementById("updateGameForm");
+
+  // Agregar un evento al formulario de actualización para prevenir el envío predeterminado
+  updateGameForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
+
+    // Aquí va el código para actualizar los datos en la base de datos
+    try {
+      const juegoID = updateGameForm.getAttribute("data-id");
+      const juegoRef = doc(db, "Juegos", juegoID);
+
+      updateDoc(juegoRef, {
+        titulo: updateGameForm.updateTitulo.value,
+        genero: updateGameForm.updateGenero.value,
+        plataforma: updateGameForm.updatePlataforma.value,
+        fecha: updateGameForm.updateFecha_lanzamiento.value,
+        desarrollador: updateGameForm.updateDesarrollador.value,
+        editor: updateGameForm.updateEditor.value,
+        clasificacion: updateGameForm.updateClasificacion.value,
+        precio: updateGameForm.updatePrecio.value,
+        descripcion: updateGameForm.updateDescripcion.value,
+      })
+        .then(() => {
+          alert("El juego ha sido actualizado correctamente.");
+          mostrarDatos();
+          // No es necesario cerrar el modal aquí
+        })
+        .catch((error) => {
+          console.error("Error al actualizar el juego:", error);
+          alert(
+            "Error al actualizar el juego. Consulta la consola para más detalles."
+          );
+        });
+    } catch (error) {
+      console.error("Error al actualizar el juego:", error);
+      alert(
+        "Error al actualizar el juego. Consulta la consola para más detalles."
+      );
+    }
+  });
+}
 
 async function mostrarDatos() {
   try {
@@ -125,8 +170,6 @@ async function mostrarDatos() {
 
       // Agregar el div al contenedor de datos
       datos.appendChild(juegoDiv);
-
-      console.log(juegoID);
     });
   } catch (error) {
     console.error("Error al obtener los datos:", error);
@@ -135,7 +178,6 @@ async function mostrarDatos() {
 }
 
 async function mostrar(juegoID) {
-  console.log(juegoID);
   try {
     const juegoRef = doc(db, "Juegos", juegoID); // Construir la referencia del documento
     const juegoSnap = await getDoc(juegoRef); // Obtener los datos del documento
@@ -172,10 +214,8 @@ async function mostrar(juegoID) {
 
 async function eliminar(juegoID) {
   try {
-    // Mostrar un cuadro de diálogo de confirmación
     const confirmacion = confirm("¿Seguro que deseas eliminar este juego?");
 
-    // Si el usuario confirma, proceder con la eliminación
     if (confirmacion) {
       const juegoRef = doc(db, "Juegos", juegoID);
       await deleteDoc(juegoRef);
