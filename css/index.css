@@ -33,10 +33,16 @@ body {
 }
 .card:hover {
   width: 60vh;
-  transition: 1.5s;
-  background-color: #07080a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+  transition-duration: 1s;
 }
 
+.card:not(:hover) {
+  transition-duration: 1s;
+  transform: scale(1); /* Vuelve al tamaño original */
+  box-shadow: none; /* Quita la sombra */
+}
 /* Media query para pantallas pequeñas */
 @media (max-width: 768px) {
   .card {
