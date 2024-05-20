@@ -23,9 +23,6 @@
     };
   </script>
   <body style="margin: 0">
-    <nav id="nav-container">
-      <!-- nav esta aqui-->
-    </nav>
     <section
       style="
         background-image: url(img/fondo.jpeg);
@@ -33,6 +30,9 @@
         background-position: center;
       "
     >
+      <nav id="nav-container">
+        <!-- nav esta aqui-->
+      </nav>
       <div class="div1">
         <h1 style="font-weight: bold">EL MUNDO DE LOS JUEGOS</h1>
         <h2 style="font-weight: bold">
@@ -171,6 +171,22 @@
                     name="clasificacion"
                     required
                   />
+                </div>
+                <div class="mb-3">
+                  <label for="categorias" class="form-label">Categorias</label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    id="categorias"
+                    required
+                  >
+                    <option selected disabled>Categorias</option>
+                    <option value="MetroidVania">MetroidVania</option>
+                    <option value="Aventuras">Aventuras</option>
+                    <option value="Acción">Acción</option>
+                    <option value="Cooperativo">Cooperativo</option>
+                    <option value="Multijugador">Multijugador</option>
+                  </select>
                 </div>
                 <div class="mb-3">
                   <label for="precio" class="form-label">Precio:</label>
@@ -313,6 +329,22 @@
                 />
               </div>
               <div class="mb-3">
+                <label for="" class="form-label">Categorias</label>
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  id="updateCategorias"
+                  required
+                >
+                  <option selected disabled>Categorias</option>
+                  <option value="MetroidVania">MetroidVania</option>
+                  <option value="Aventuras">Aventuras</option>
+                  <option value="Acción">Acción</option>
+                  <option value="Cooperativo">Cooperativo</option>
+                  <option value="Multijugador">Multijugador</option>
+                </select>
+              </div>
+              <div class="mb-3">
                 <label for="updatePrecio" class="form-label">Precio:</label>
                 <input
                   type="number"
@@ -354,6 +386,8 @@
         </div>
       </div>
     </div>
+    
+</section>
     <footer id="pie-container" style="margin-top: 5vh"></footer>
     <script type="module" src="js/primario.js"></script>
     <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>

@@ -45,6 +45,7 @@ function anadir() {
         desarrollador: vidproduct.desarrollador.value,
         editor: vidproduct.editor.value,
         clasificacion: vidproduct.clasificacion.value,
+        categoria: vidproduct.categorias.value,
         precio: vidproduct.precio.value,
         descripcion: vidproduct.descripcion.value,
       });
@@ -63,11 +64,9 @@ function actualizar() {
   console.log("inicio");
   const updateGameForm = document.getElementById("updateGameForm");
 
-  // Agregar un evento al formulario de actualización para prevenir el envío predeterminado
   updateGameForm.addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
+    e.preventDefault();
 
-    // Aquí va el código para actualizar los datos en la base de datos
     try {
       const juegoID = updateGameForm.getAttribute("data-id");
       const juegoRef = doc(db, "Juegos", juegoID);
@@ -80,13 +79,13 @@ function actualizar() {
         desarrollador: updateGameForm.updateDesarrollador.value,
         editor: updateGameForm.updateEditor.value,
         clasificacion: updateGameForm.updateClasificacion.value,
+        categoria: updateGameForm.updateCategorias.value,
         precio: updateGameForm.updatePrecio.value,
         descripcion: updateGameForm.updateDescripcion.value,
       })
         .then(() => {
           alert("El juego ha sido actualizado correctamente.");
           mostrarDatos();
-          // No es necesario cerrar el modal aquí
         })
         .catch((error) => {
           console.error("Error al actualizar el juego:", error);
@@ -152,7 +151,8 @@ async function mostrarDatos() {
             <p>Género: ${juego.genero}
             <br>Plataforma: ${juego.plataforma}<br>
             Fecha: ${juego.fecha}<br>
-            Desarrollador: ${juego.desarrollador}</p>
+            Desarrollador: ${juego.desarrollador}<br>
+            Categoria: ${juego.categoria}</p>
           </div>
           <div style="padding-left:8vh"> 
             <p>Editor: ${juego.editor}<br>
@@ -198,6 +198,7 @@ async function mostrar(juegoID) {
       document.getElementById("updateEditor").value = juego.editor || "";
       document.getElementById("updateClasificacion").value =
         juego.clasificacion || "";
+      document.getElementById("updateCategorias").value = juego.categoria || "";
       document.getElementById("updatePrecio").value = juego.precio || "";
       document.getElementById("updateDescripcion").value =
         juego.descripcion || "";
