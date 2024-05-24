@@ -18,7 +18,7 @@ const firebaseConfig = {
 
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 
 const googleButton = document.getElementById("googleLogin");
 googleButton.addEventListener("click", async (e) => {
@@ -26,6 +26,7 @@ googleButton.addEventListener("click", async (e) => {
   const provider = new GoogleAuthProvider();
   try {
     const credenciales = await signInWithPopup(auth, provider);
+    localStorage.setItem("userName", credenciales.user.displayName);
     window.location.assign("inicio.html");
     console.log(credenciales);
   } catch (error) {

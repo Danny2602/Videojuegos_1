@@ -8,20 +8,8 @@
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.css" />
   </head>
-  <script>
-    window.onload = function () {
-      fetch("nav.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("nav-container").innerHTML = data;
-        });
-      fetch("pie.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("pie-container").innerHTML = data;
-        });
-    };
-  </script>
+  
+  
   <body style="margin: 0">
     <section
       style="
@@ -42,13 +30,23 @@
         <!-- Boton para abrir el modal de añadir -->
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn btn-primary btn-accion"
           data-bs-toggle="modal"
           data-bs-target="#addGameModal"
           style="width: 49vh; height: 8vh"
         >
           Añadir Juego
         </button>
+      </div>
+      <div style="display: flex;justify-content: end; ">
+        <div class="sesion">
+          <div>
+          <label id="usuario" style="color: white">Inicia sesion</label>
+        </div>
+          <button type="click" class="btn btn-primary" id="cerrar">
+            Cerrar Secion
+          </button>
+        </div>
       </div>
     </section>
     <section
@@ -388,8 +386,11 @@
     </div>
     
 </section>
+
+
     <footer id="pie-container" style="margin-top: 5vh"></footer>
     <script type="module" src="js/primario.js"></script>
     <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>
+    <script type="module" src="js/secundario.js"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
 
 import {
   getFirestore,
@@ -10,7 +10,7 @@ import {
   deleteDoc,
   updateDoc,
   doc,
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -163,12 +163,17 @@ async function mostrarDatos() {
         </div>
       `;
 
-      // Agregar el boton de actualizar y eliminar
-      juegoDiv.appendChild(button);
-      juegoDiv.appendChild(button2);
+      const userName = localStorage.getItem("userName");
 
-      // Agregar el div al contenedor de datos
-      datos.appendChild(juegoDiv);
+      if (userName == null) {
+      } else {
+        juegoDiv.appendChild(button);
+        juegoDiv.appendChild(button2);
+
+        // Agregar el div al contenedor de datos
+        datos.appendChild(juegoDiv);
+      }
+      // Agregar el boton de actualizar y eliminar
     });
   } catch (error) {
     console.error("Error al obtener los datos:", error);

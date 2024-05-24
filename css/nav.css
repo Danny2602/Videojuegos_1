@@ -39,6 +39,7 @@ nav {
   height: 4vh;
   width: 20vh;
   border: none;
+  font-weight: bold;
 }
 
 .nav1 select {

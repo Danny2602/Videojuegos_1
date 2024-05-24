@@ -85,3 +85,35 @@ body {
   background-color: rgb(91, 91, 104);
   color: white;
 }
+.sesion {
+  font-size: 1.7vh;
+  color: white;
+  width: 100wh;
+  align-items: center;
+  text-align: center;
+  border-radius: 100%;
+  z-index: 111;
+  position: fixed;
+  padding: 3vh;
+  margin-left: 6vh;
+}
+.sesion button:not(:hover) {
+  width: 15vh;
+  font-size: 1.7vh;
+  background-color: #5c7e10;
+  font-size: 1.6vh;
+  height: 3.8vh;
+  width: 19vh;
+  border: none;
+  justify-content: center;
+  transition: 0.5s;
+}
+.sesion button:hover {
+  transition: 0.5s;
+  background-color: black;
+  color: white;
+  font-size: 1.7vh;
+  height: 4vh;
+  width: 20vh;
+  border: none;
+}
