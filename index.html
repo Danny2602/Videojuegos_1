@@ -3,393 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Juegos</title>
-
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.css" />
+    <title>Iniciar sesión</title>
+    <link rel="shortcut icon" href="img/ico.ico" />
+    <link rel="stylesheet" href="css/login.css" />
   </head>
-  <script>
-    window.onload = function () {
-      fetch("nav.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("nav-container").innerHTML = data;
-        });
-      fetch("pie.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("pie-container").innerHTML = data;
-        });
-    };
-  </script>
   <body style="margin: 0">
     <section
+      class="fondo"
       style="
         background-image: url(img/fondo.jpeg);
         background-size: cover;
         background-position: center;
       "
     >
-      <nav id="nav-container">
-        <!-- nav esta aqui-->
-      </nav>
-      <div class="div1">
-        <h1 style="font-weight: bold">EL MUNDO DE LOS JUEGOS</h1>
-        <h2 style="font-weight: bold">
-          UN MUNDO LLENO DE AVENTURAS, ACCION E HISTORIAS
-        </h2>
-        <p style="font-weight: bold">PUBLICA TU JUEGO</p>
-        <!-- Boton para abrir el modal de añadir -->
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#addGameModal"
-          style="width: 49vh; height: 8vh"
-        >
-          Añadir Juego
-        </button>
-      </div>
-    </section>
-    <section
-      class="row container-fluid"
-      style="margin-top: 10vh; justify-content: space-between; display: flex"
-    >
-      <div
-        class="col-3"
-        style="
-          background-image: url(img/img1.jpeg);
-          background-size: cover;
-          background-position: center;
-          border-radius: 2vh 0 0 3vh;
-        "
-      ></div>
-      <div class="col-9 align-content-center justify-content-center">
-        <h1 style="text-align: center; color: white">Videojuegos</h1>
-        <!--Tabla de los datos que tengo en mi fire base-->
-        <div id="datos"></div>
-      </div>
-    </section>
-
-    <section>
-      <!-- Modal de Añadir Juego para no confudirme xd -->
-      <div
-        class="modal fade"
-        id="addGameModal"
-        tabindex="-1"
-        aria-labelledby="addGameModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content " style="background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
-            <div class="modal-header">
-              <h5 class="modal-title" id="addGameModalLabel">
-                Añadir Nuevo Videojuego
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <!-- Formulario para añadir juego para no confundirme -->
-              <form id="anadirVid">
-                <div class="mb-3">
-                  <label for="titulo" class="form-label">Título:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="titulo"
-                    name="titulo"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="genero" class="form-label">Género:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="genero"
-                    name="genero"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="plataforma" class="form-label">Plataforma:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="plataforma"
-                    name="plataforma"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="fecha_lanzamiento" class="form-label"
-                    >Fecha de Lanzamiento:</label
-                  >
-                  <input
-                    type="date"
-                    class="form-control"
-                    id="fecha"
-                    name="fecha"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="desarrollador" class="form-label"
-                    >Desarrollador:</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="desarrollador"
-                    name="desarrollador"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="editor" class="form-label">Editor:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="editor"
-                    name="editor"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="clasificacion" class="form-label"
-                    >Clasificación:</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="clasificacion"
-                    name="clasificacion"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="categorias" class="form-label">Categorias</label>
-                  <select
-                    class="form-select"
-                    aria-label="Default select example"
-                    id="categorias"
-                    required
-                  >
-                    <option selected disabled>Categorias</option>
-                    <option value="MetroidVania">MetroidVania</option>
-                    <option value="Aventuras">Aventuras</option>
-                    <option value="Acción">Acción</option>
-                    <option value="Cooperativo">Cooperativo</option>
-                    <option value="Multijugador">Multijugador</option>
-                  </select>
-                </div>
-                <div class="mb-3">
-                  <label for="precio" class="form-label">Precio:</label>
-                  <input
-                    type="number"
-                    step="0.01"
-                    class="form-control"
-                    id="precio"
-                    name="precio"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="descripcion" class="form-label"
-                    >Descripción:</label
-                  >
-                  <textarea
-                    class="form-control"
-                    id="descripcion"
-                    name="descripcion"
-                    required
-                  ></textarea>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-danger"
-                    data-bs-dismiss="modal"
-                  >
-                    Cerrar
-                  </button>
-                  <button
-                    type="submit"
-                    onclick="anadir()"
-                    class="btn btn-primary"
-                  >
-                    Añadir
-                  </button>
-                </div>
-              </form>
+      <form id="formLogin">
+        <div class="login">
+          <h1 style="font-size: 4.1vh; color: white; font-weight: bold">
+            Iniciar sesión
+          </h1>
+          <div class="login1">
+            <div style="padding: 3vh 0 0 5vh">
+              <h4 style="color: rgb(25, 153, 255); margin-bottom: 0.4vh">
+                INICIA SESIÓN CON TU NOMBRE DE CUENTA
+              </h4>
+              <input type="text" class="texto" id="email" />
+              <h4 style="color: rgb(175, 175, 175); margin-bottom: 0.4vh">
+                CONTRASEÑA
+              </h4>
+              <input
+                type="password"
+                class="texto"
+                style="margin-bottom: 0.6vh"
+              />
+              <br />
+              <div style="display: flex; flex-direction: row">
+                <input type="checkbox" style="margin-bottom: 0" id="password" />
+                <h4
+                  style="
+                    font-size: 1.75;
+                    margin-bottom: 0;
+                    color: rgb(175, 175, 175);
+                  "
+                >
+                  Recordarme
+                </h4>
+              </div>
+              <button type="submit">Iniciar sesión</button>
+              <br />
+              <button id="googleLogin">Iniciar sesión con Google</button>
+              <h4 style="padding: 4vh 0 0 20vh; font-size: 1.7vh">
+                <a href="#" style="color: rgb(175, 175, 175)">
+                  Ayuda, no puedo iniciar sesión
+                </a>
+              </h4>
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </section>
-
-    <!-- Modal de actualizar xd -->
-    <div
-      class="modal fade"
-      id="updateGameModal"
-      tabindex="-1"
-      aria-labelledby="updateGameModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content  text-white" style="background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);">
-          <div class="modal-header">
-            <h5 class="modal-title" id="updateGameModalLabel">
-              Actualizar Videojuego
-            </h5>
-            <button
-              type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <!-- Formulario para actualizar juego -->
-            <form id="updateGameForm">
-              <div class="mb-3">
-                <label for="updateTitulo" class="form-label">Título:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="updateTitulo"
-                  name="titulo"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="updateGenero" class="form-label">Género:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="updateGenero"
-                  name="genero"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="updatePlataforma" class="form-label"
-                  >Plataforma:</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="updatePlataforma"
-                  name="plataforma"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="updateFecha_lanzamiento" class="form-label"
-                  >Fecha de Lanzamiento:</label
-                >
-                <input
-                  type="date"
-                  class="form-control"
-                  id="updateFecha_lanzamiento"
-                  name="fecha_lanzamiento"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="updateDesarrollador" class="form-label"
-                  >Desarrollador:</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="updateDesarrollador"
-                  name="desarrollador"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="updateEditor" class="form-label">Editor:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="updateEditor"
-                  name="editor"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="updateClasificacion" class="form-label"
-                  >Clasificación:</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="updateClasificacion"
-                  name="clasificacion"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="" class="form-label">Categorias</label>
-                <select
-                  class="form-select"
-                  aria-label="Default select example"
-                  id="updateCategorias"
-                  required
-                >
-                  <option selected disabled>Categorias</option>
-                  <option value="MetroidVania">MetroidVania</option>
-                  <option value="Aventuras">Aventuras</option>
-                  <option value="Acción">Acción</option>
-                  <option value="Cooperativo">Cooperativo</option>
-                  <option value="Multijugador">Multijugador</option>
-                </select>
-              </div>
-              <div class="mb-3">
-                <label for="updatePrecio" class="form-label">Precio:</label>
-                <input
-                  type="number"
-                  step="0.01"
-                  class="form-control"
-                  id="updatePrecio"
-                  name="precio"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="updateDescripcion" class="form-label"
-                  >Descripción:</label
-                >
-                <textarea
-                  class="form-control"
-                  id="updateDescripcion"
-                  name="descripcion"
-                ></textarea>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  data-bs-dismiss="modal"
-                >
-                  Cerrar
-                </button>
-
-                <button
-                  type="submit"
-                  onclick="actualizar()"
-                  class="btn btn-primary"
-                >
-                  Actualizar
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-</section>
-    <footer id="pie-container" style="margin-top: 5vh"></footer>
-    <script type="module" src="js/primario.js"></script>
-    <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>
+    <script type="module" src="js/acceso.js"></script>
   </body>
 </html>
