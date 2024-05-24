@@ -1,5 +1,5 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
-import {} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+
 import {
   GoogleAuthProvider,
   signInWithPopup,
@@ -30,5 +30,6 @@ googleButton.addEventListener("click", async (e) => {
     console.log(credenciales);
   } catch (error) {
     console.log(error);
+    alert("error");
   }
 });
