@@ -1,11 +1,11 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import {} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+import {} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
 import {
   GoogleAuthProvider,
   signInWithPopup,
+  getAuth,
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
-import { auth } from "./app/firebase.js";
 // Configuración de Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyAcLSqqTsRbDzkf4vj6UqWOGn9HwGnUGmc",
@@ -18,13 +18,16 @@ const firebaseConfig = {
 
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 const googleButton = document.getElementById("googleLogin");
-googleButton.addEventListener("click", async () => {
+googleButton.addEventListener("click", async (e) => {
+  e.preventDefault();
   const provider = new GoogleAuthProvider();
   try {
     const credenciales = await signInWithPopup(auth, provider);
-    consolo.log(credenciales);
+
+    console.log(credenciales);
   } catch (error) {
     console.log(error);
   }
