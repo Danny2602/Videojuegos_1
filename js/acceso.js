@@ -26,7 +26,7 @@ googleButton.addEventListener("click", async (e) => {
   const provider = new GoogleAuthProvider();
   try {
     const credenciales = await signInWithPopup(auth, provider);
-
+    window.location.assign("inicio.html");
     console.log(credenciales);
   } catch (error) {
     console.log(error);
