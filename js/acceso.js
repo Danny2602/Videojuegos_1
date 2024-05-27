@@ -4,6 +4,9 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  createUserWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
 // Configuración de Firebase
@@ -32,5 +35,45 @@ googleButton.addEventListener("click", async (e) => {
   } catch (error) {
     console.log(error);
     alert("error");
+  }
+});
+document.getElementById("formLogin").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("passwordInput").value; // Asegúrate de tener el ID correcto
+
+  try {
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    localStorage.setItem("userName", userCredential.user.displayName);
+    window.location.assign("inicio.html");
+    console.log(userCredential);
+  } catch (error) {
+    console.log(error);
+    alert("Error al iniciar sesión: " + error.message);
+  }
+});
+
+//registrarse con el usario y la contraseña
+document.getElementById("registrarBtn").addEventListener("click", async (e) => {
+  e.preventDefault();
+  const email = document.getElementById("correo").value;
+  const password = document.getElementById("contraseña").value;
+
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    console.log(userCredential);
+
+    $("#registroModal").modal("hide"); // Si estás usando jQuery para Bootstrap
+  } catch (error) {
+    console.error(error);
+    alert("Error al registrar el usuario: " + error.message);
   }
 });

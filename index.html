@@ -6,6 +6,7 @@
     <title>Iniciar sesión</title>
     <link rel="shortcut icon" href="img/ico.ico" />
     <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.css" />
     <script type="module" src="js/acceso.js"></script>
   </head>
   <body style="margin: 0">
@@ -16,7 +17,7 @@
 
         width: 100%;
         height: 100%;
-        background-image: url(img/fondo.jpeg);
+        background-image: url(img/fondo2.jpeg);
         background-size: cover;
         background-position: center;
       "
@@ -35,17 +36,30 @@
           </h1>
           <div class="login1">
             <div style="padding: 3vh 0 0 5vh">
-              <h4 style="color: rgb(25, 153, 255); margin-bottom: 0.4vh">
+              <h4
+                style="
+                  color: rgb(25, 153, 255);
+                  margin-bottom: 0.4vh;
+                  margin-top: 4vh;
+                "
+              >
                 INICIA SESIÓN CON TU NOMBRE DE CUENTA
               </h4>
               <input type="text" class="texto" id="email" />
-              <h4 style="color: rgb(175, 175, 175); margin-bottom: 0.4vh">
+              <h4
+                style="
+                  color: rgb(175, 175, 175);
+                  margin-top: 4vh;
+                  margin-bottom: 0.4vh;
+                "
+              >
                 CONTRASEÑA
               </h4>
               <input
                 type="password"
                 class="texto"
                 style="margin-bottom: 0.6vh"
+                id="passwordInput"
               />
               <br />
               <div style="display: flex; flex-direction: row">
@@ -62,7 +76,7 @@
               </div>
               <button class="btn1" type="submit">Iniciar sesión</button>
               <br />
-              <hr />
+              <hr style="background-color: aliceblue" />
               <button
                 id="googleLogin"
                 type="click"
@@ -80,8 +94,13 @@
                 <img src="img/google.png" style="width: 5h; height: 5vh" />
               </button>
               <h4 style="padding: 4vh 0 0 20vh; font-size: 1.7vh">
-                <a href="#" style="color: rgb(175, 175, 175)">
-                  Ayuda, no puedo iniciar sesión
+                <a
+                  href="#"
+                  style="color: rgb(175, 175, 175)"
+                  data-toggle="modal"
+                  data-target="#registroModal"
+                >
+                  No puedes ingresar Registrate
                 </a>
               </h4>
             </div>
@@ -89,5 +108,60 @@
         </div>
       </form>
     </section>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="registroModal"
+      tabindex="-1"
+      aria-labelledby="registroModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="registroModalLabel">Registrarse</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="correo">Correo</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="correo"
+                  placeholder="Ingresa tu correo"
+                />
+              </div>
+              <div class="form-group">
+                <label for="contraseña">Contraseña</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="contraseña"
+                  placeholder="Ingresa tu contraseña"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="registrarBtn">
+              Registrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>
   </body>
 </html>
