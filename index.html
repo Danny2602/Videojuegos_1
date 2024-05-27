@@ -12,6 +12,10 @@
     <section
       class="fondo"
       style="
+        position: absolute;
+
+        width: 100%;
+        height: 100%;
         background-image: url(img/fondo.jpeg);
         background-size: cover;
         background-position: center;
@@ -19,7 +23,14 @@
     >
       <form id="formLogin">
         <div class="login">
-          <h1 style="font-size: 4.1vh; color: white; font-weight: bold">
+          <h1
+            style="
+              font-size: 4.8vh;
+              text-align: center;
+              color: white;
+              font-weight: bold;
+            "
+          >
             Iniciar sesión
           </h1>
           <div class="login1">
@@ -49,10 +60,24 @@
                   Recordarme
                 </h4>
               </div>
-              <button type="submit">Iniciar sesión</button>
+              <button class="btn1" type="submit">Iniciar sesión</button>
               <br />
-              <button id="googleLogin" type="click">
-                Iniciar sesión con Google
+              <hr />
+              <button
+                id="googleLogin"
+                type="click"
+                class="btn2"
+                style="
+                  width: 6vh;
+                  height: 5vh;
+                  border-radius: 3vh;
+                  align-items: center;
+                  display: flex;
+                  padding: 0.6vh;
+                  background-color: rgba(255, 255, 255, 0);
+                "
+              >
+                <img src="img/google.png" style="width: 5h; height: 5vh" />
               </button>
               <h4 style="padding: 4vh 0 0 20vh; font-size: 1.7vh">
                 <a href="#" style="color: rgb(175, 175, 175)">

@@ -1,4 +1,5 @@
 @import url("https://fonts.cdnfonts.com/css/motiva-sans");
+
 section {
   display: flex;
   justify-content: center;
@@ -10,12 +11,14 @@ section {
   margin: 10vh;
 }
 .login1 {
+  border-radius: 1vh;
   background-color: rgb(24, 26, 33);
   height: 48vh;
-  width: 109vh;
+  width: 91vh;
   margin-top: 6vh;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 .login1 h4 {
   font-size: 1.7241379310344827vh;
@@ -24,10 +27,11 @@ section {
   margin-top: 0;
   height: 5vh;
   width: 64.5vh;
-  border-radius: 0.2vh;
+  border-radius: 1vh;
   border: none;
 }
 .login1 button {
+  cursor: pointer;
   margin: 1.4vh 0 0 13vh;
   height: 7vh;
   width: 39vh;
